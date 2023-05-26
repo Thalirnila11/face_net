@@ -5,7 +5,7 @@ import sys
 from classifier import training
 
 datadir = './aligned_img'
-modeldir = './model/20180402-114759.pb'
+modeldir = r'E:\python\facenet\Facenet_Tensorflow-main\Facenet_Tensorflow-main\model\20180402-114759.pb'
 #modeldir = './model/20170511-185253.pb'
 classifier_filename = './class/classifier.pkl'
 print ("Training Start")

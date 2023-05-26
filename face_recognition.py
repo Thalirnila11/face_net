@@ -11,17 +11,17 @@ import pickle
 from PIL import Image
 import tensorflow.compat.v1 as tf
 video= 0
-modeldir = './model/20180402-114759.pb'
+modeldir = r'E:\python\facenet\Facenet_Tensorflow-main\Facenet_Tensorflow-main\model\20180402-114759.pb'
 classifier_filename = './class/classifier.pkl'
-npy='./npy'
-train_img="./train_img"
+npy=r'E:\python\facenet\Facenet_Tensorflow-main\Facenet_Tensorflow-main\npy'
+train_img=r"E:\python\facenet\Facenet_Tensorflow-main\Facenet_Tensorflow-main\train_img"
 with tf.Graph().as_default():
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.6)
     sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
     with sess.as_default():
         pnet, rnet, onet = detect_face.create_mtcnn(sess, npy)
         minsize = 30  # minimum size of face
-        threshold = [0.7,0.8,0.8]  # three steps's threshold
+        threshold = [0.7,0.8,0.8] # three steps's threshold
         factor = 0.709  # scale factor
         margin = 44
         batch_size =100 #1000
@@ -78,7 +78,7 @@ with tf.Graph().as_default():
                         predictions = model.predict_proba(emb_array)
                         best_class_indices = np.argmax(predictions, axis=1)
                         best_class_probabilities = predictions[np.arange(len(best_class_indices)), best_class_indices]
-                        if best_class_probabilities>0.87:
+                        if best_class_probabilities>0.85:
                             cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)    #boxing face
                             for H_i in HumanNames:
                                 if HumanNames[best_class_indices[0]] == H_i:
