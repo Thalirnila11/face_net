@@ -1,7 +1,7 @@
 import cv2
 import os
 
-output_directory = r"E:\python\facenet\Facenet_Tensorflow-main\Facenet_Tensorflow-main\train_img\preetha"
+output_directory = r"E:\python\facenet\Facenet_Tensorflow-main\Facenet_Tensorflow-main\aligned_img\preetha"
 frame_count = 25
 
 # Create the output directory if it doesn't exist
